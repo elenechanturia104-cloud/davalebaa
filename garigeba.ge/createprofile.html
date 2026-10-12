@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>პროფილის შექმნა — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="dashboard.html">ჩემი ანგარიში</a>
+            <a href="search.html">ძიება</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container">
+        <form class="form-card" id="createProfileForm">
+            <div class="page-heading">
+                <span class="eyebrow">პირადი პროფილი</span>
+                <h1>პროფილის შექმნა</h1>
+                <p>შეავსე ინფორმაცია მხოლოდ სრულწლოვანი ადამიანის ინფორმირებული თანხმობით.</p>
+            </div>
+
+            <div class="notice">
+                არ მიუთითო პირადი ნომერი, ზუსტი სახლის მისამართი, დოკუმენტების მონაცემები ან სხვა ზედმეტად პირადი ინფორმაცია.
+            </div>
+
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="personName">სახელი ან საჩვენებელი სახელი</label>
+                    <input id="personName" required maxlength="40" placeholder="მაგ. ნიკა">
+                </div>
+
+                <div class="form-field">
+                    <label for="personAge">ასაკი</label>
+                    <input id="personAge" type="number" min="18" max="100" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="personCity">ქალაქი</label>
+                    <select id="personCity" required>
+                        <option value="">აირჩიე ქალაქი</option>
+                        <option>თბილისი</option>
+                        <option>ბათუმი</option>
+                        <option>ქუთაისი</option>
+                        <option>ფოთი</option>
+                        <option>სხვა</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="personEducation">განათლება</label>
+                    <select id="personEducation" required>
+                        <option value="">აირჩიე</option>
+                        <option>საშუალო</option>
+                        <option>სტუდენტი</option>
+                        <option>უმაღლესი</option>
+                        <option>სხვა</option>
+                    </select>
+                </div>
+
+                <div class="form-field full">
+                    <label for="personBio">მოკლე აღწერა</label>
+                    <textarea id="personBio" maxlength="500" required placeholder="ინტერესები, ღირებულებები და რას ეძებს ადამიანი..."></textarea>
+                </div>
+
+                <div class="form-field full">
+                    <label class="consent-label">
+                        <input type="checkbox" id="profileConsent" required>
+                        პროფილის მფლობელი 18 წლის ან უფროსია და თანახმაა ამ ინფორმაციის გამოქვეყნებაზე.
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary form-submit" type="submit">პროფილის შენახვა</button>
+            <p id="profileFormMessage" class="form-message" aria-live="polite"></p>
+        </form>
+    </main>
+</body>
+</html>

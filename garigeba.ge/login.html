@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>შესვლა — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="index.html">მთავარი</a>
+            <a href="search.html">პროფილების ძიება</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+        <a class="btn btn-outline" href="register.html">რეგისტრაცია</a>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container">
+        <form class="form-card" id="loginForm">
+            <div class="page-heading">
+                <span class="eyebrow">კეთილი იყოს შენი დაბრუნება</span>
+                <h1>ანგარიშზე შესვლა</h1>
+                <p>შეიყვანე რეგისტრაციისას მითითებული მონაცემები.</p>
+            </div>
+
+            <div class="form-field">
+                <label for="loginEmail">ელფოსტა</label>
+                <input id="loginEmail" type="email" required autocomplete="email">
+            </div>
+
+            <div class="form-field" style="margin-top: 18px">
+                <label for="loginPassword">პაროლი</label>
+                <input id="loginPassword" type="password" required autocomplete="current-password">
+            </div>
+
+            <button class="btn btn-primary form-submit" type="submit">შესვლა</button>
+            <p id="loginMessage" class="form-message" aria-live="polite"></p>
+
+            <p class="form-note">დემო რეჟიმში შესვლა მუშაობს მხოლოდ ამ ბრაუზერში შექმნილი სატესტო ანგარიშით. რეალური ავტორიზაციისთვის საჭიროა Firebase Authentication ან სხვა უსაფრთხო სერვისი.</p>
+        </form>
+    </main>
+</body>
+</html>
