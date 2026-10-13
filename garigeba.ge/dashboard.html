@@ -18,39 +18,131 @@
         </nav>
     </header>
 
-    <main class="page-container">
+    <main class="page-container dashboard-page">
         <div class="page-heading">
             <span class="eyebrow">პირადი სივრცე</span>
             <h1>ჩემი ანგარიში</h1>
-            <p>მართე შენი პროფილი და გადადი საიტის ძირითად გვერდებზე.</p>
+            <p id="dashboardInfo">დემო ანგარიშის ინფორმაცია იტვირთება.</p>
         </div>
 
-        <div class="feature-grid">
-            <article class="feature-card">
-                <div class="feature-icon">01</div>
-                <h3>პროფილის შექმნა</h3>
-                <p>დაამატე ან განაახლე სრულწლოვანი ადამიანის თანხმობით გაზიარებული ინფორმაცია.</p>
-                <a class="btn btn-primary" style="margin-top:18px" href="create-profile.html">პროფილის შექმნა</a>
-            </article>
+        <section class="dashboard-profile-status" aria-labelledby="dashboardProfileHeading">
+            <div>
+                <span class="eyebrow">პროფილი</span>
+                <h2 id="dashboardProfileHeading">შევსების მდგომარეობა</h2>
+                <p id="profileCompletionText" class="muted">პროფილის მონაცემები იტვირთება.</p>
+                <progress id="profileCompletion" max="100" value="0" aria-label="პროფილის შევსების პროცენტი"></progress>
+            </div>
+            <p id="dashboardVisibilityStatus" class="dashboard-visibility"></p>
+        </section>
 
-            <article class="feature-card">
-                <div class="feature-icon">02</div>
-                <h3>ძიება</h3>
-                <p>გაეცანი დემო პროფილებს და გამოსცადე ძიების ფილტრები.</p>
-                <a class="btn btn-outline" style="margin-top:18px" href="search.html">პროფილების ნახვა</a>
-            </article>
+        <section id="dashboardMetrics" class="dashboard-metrics" aria-label="ანგარიშის აქტივობა"></section>
 
-            <article class="feature-card">
-                <div class="feature-icon">03</div>
-                <h3>ჩემი მოწონებები</h3>
-                <p>ნახე ის პროფილები, რომლებზეც ინტერესი გამოხატე.</p>
-                <a class="btn btn-outline" style="margin-top:18px" href="likes.html">მოწონებები</a>
-            </article>
-        </div>
+        <nav class="account-tools" aria-label="ანგარიშის ხელსაწყოები">
+            <a class="btn btn-primary" href="createprofile.html">პროფილის შექმნა</a>
+            <a class="btn btn-outline" href="values.html">ღირებულებების კითხვარი</a>
+            <a class="btn btn-outline" href="search.html">ძებნა</a>
+            <a class="btn btn-outline" href="likes.html">ინტერესები</a>
+            <a class="btn btn-outline" href="favorites.html">შენახული პროფილები</a>
+            <a class="btn btn-outline" href="matches.html">ურთიერთინტერესი</a>
+            <a class="btn btn-outline" href="privacy.html">კონფიდენციალურობა</a>
+        </nav>
+
+        <section class="dashboard-columns">
+            <section class="dashboard-section">
+                <div class="dashboard-section-heading">
+                    <div><span class="eyebrow">შემომავალი</span><h2>მიღებული ინტერესები</h2></div>
+                </div>
+                <div id="dashboardIncomingInterests" class="dashboard-list"></div>
+            </section>
+
+            <section class="dashboard-section">
+                <div class="dashboard-section-heading">
+                    <div><span class="eyebrow">გაგზავნილი</span><h2>გამოხატული ინტერესები</h2></div>
+                </div>
+                <div id="dashboardSentInterests" class="dashboard-list"></div>
+            </section>
+        </section>
+
+        <section class="dashboard-columns">
+            <section class="dashboard-section">
+                <div class="dashboard-section-heading">
+                    <div><span class="eyebrow">შენთვის</span><h2>რეკომენდებული პროფილები</h2></div>
+                    <a href="search.html">ყველას ნახვა</a>
+                </div>
+                <div id="dashboardRecommendations" class="dashboard-recommendations"></div>
+            </section>
+
+            <section class="dashboard-section">
+                <div class="dashboard-section-heading">
+                    <div><span class="eyebrow">კალენდარი</span><h2>მომავალი შეხვედრები</h2></div>
+                    <a href="matches.html">კალენდრის ნახვა</a>
+                </div>
+                <div id="dashboardMeetings" class="dashboard-list"></div>
+            </section>
+        </section>
+
+        <section class="dashboard-notification-settings dashboard-section">
+            <div class="dashboard-section-heading">
+                <div><span class="eyebrow">შეტყობინებები</span><h2>არჩევითი განახლებები</h2></div>
+            </div>
+            <p class="muted">დემო შეტყობინებები ამ ბრაუზერში ჩანს; ელფოსტა და push-შეტყობინებები არ იგზავნება.</p>
+            <form id="notificationSettingsForm" class="notification-settings-form">
+                <div class="form-field">
+                    <label for="notificationCadence">სიხშირე</label>
+                    <select id="notificationCadence">
+                        <option value="instant">მყისიერად</option>
+                        <option value="daily" selected>დღიური შეჯამება</option>
+                        <option value="weekly">კვირეული შეჯამება</option>
+                        <option value="off">არცერთი არჩევითი შეტყობინება</option>
+                    </select>
+                </div>
+                <fieldset class="notification-types">
+                    <legend>არჩევითი ტიპები</legend>
+                    <label><input type="checkbox" data-notification-type="interest" checked> ახალი ინტერესი</label>
+                    <label><input type="checkbox" data-notification-type="mutual" checked> ორმხრივი ინტერესი</label>
+                    <label><input type="checkbox" data-notification-type="message" checked> ახალი შეტყობინება</label>
+                    <label><input type="checkbox" data-notification-type="recommendations" checked> რეკომენდაციები</label>
+                    <label><input type="checkbox" data-notification-type="savedSearch" checked disabled> შენახული ძიება (მიუწვდომელია)</label>
+                    <label><input type="checkbox" data-notification-type="verification" checked disabled> დადასტურების სტატუსი (პროვაიდერი არ არის)</label>
+                    <label><input type="checkbox" data-notification-type="meeting" checked> შეხვედრის შეხსენება</label>
+                </fieldset>
+                <p class="security-alert-policy">უსაფრთხოების შეტყობინებები არჩევით განახლებებზე ცალკეა და ამ პარამეტრებით არ ითიშება.</p>
+                <p class="form-note">დღიური და კვირეული შეჯამებები ამ დემოში შემდეგ dashboard ვიზიტზე გამოჩნდება. შენახული ძიებისა და დადასტურების შეტყობინებები ჯერ არ იწარმოება.</p>
+                <button class="btn btn-primary" type="submit">პარამეტრების შენახვა</button>
+                <p id="notificationSettingsMessage" class="form-message" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="dashboard-columns dashboard-notifications">
+            <section class="dashboard-section">
+                <div class="dashboard-section-heading">
+                    <div><span class="eyebrow">არჩევითი</span><h2>ბოლო განახლებები</h2></div>
+                </div>
+                <div id="optionalNotifications" class="dashboard-list"></div>
+            </section>
+            <section class="dashboard-section security-notifications">
+                <div class="dashboard-section-heading">
+                    <div><span class="eyebrow">ანგარიშის დაცვა</span><h2>უსაფრთხოების შეტყობინებები</h2></div>
+                </div>
+                <div id="securityNotifications" class="dashboard-list"></div>
+            </section>
+        </section>
+
+        <section class="membership-section dashboard-section">
+            <div class="dashboard-section-heading">
+                <div><span class="eyebrow">წევრობა</span><h2>უფასო წევრობა</h2></div>
+                <span class="membership-badge">დემო · უფასო</span>
+            </div>
+            <p>უფასო წევრობა მოიცავს პროფილის მართვას, ძიებას, ინტერესებს, ურთიერთინტერესსა და კონფიდენციალურობის ხელსაწყოებს. უსაფრთხოების ფუნქციები ყოველთვის უფასო უნდა იყოს; დაბლოკვა და შეტყობინება ამ დემოში ჯერ ჩართული არ არის. გადახდა, ავტომატური განახლება და პირადი მონაცემების გაყიდვა არ არსებობს.</p>
+            <div class="premium-preview">
+                <h3>Premium</h3>
+                <p>შესაძლო ფუნქციებია დამატებითი ძიების ფილტრები, შენახული ძიებები, პროფილების ორგანიზება, გაფართოებული თავსებადობის ხედები და მკაფიოდ მონიშნული პრომო ხილვადობა.</p>
+                <p class="muted">ამჟამად მიუწვდომელია. ფასი და პირობები არ არის დაწესებული; შეძენა შეუძლებელია.</p>
+            </div>
+        </section>
 
         <div class="panel" style="margin-top:24px">
-            <h3>ანგარიშის ინფორმაცია</h3>
-            <p id="dashboardInfo" class="muted" style="margin-top:8px">დემო ანგარიშის ინფორმაცია ჯერ არ არის.</p>
+            <h3>სესია</h3>
             <button class="btn btn-outline" id="logoutButton" style="margin-top:18px" type="button">დემო რეჟიმიდან გამოსვლა</button>
         </div>
     </main>

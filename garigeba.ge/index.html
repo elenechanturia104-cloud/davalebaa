@@ -3,63 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Garigeba.ge — გაცნობა ურთიერთპატივისცემით და ოჯახის მხარდაჭერით.">
-    <title>Garigeba.ge — მთავარი</title>
+    <meta name="description" content="garigeba.ge — meaningful connections, introduced with care and family support.">
+    <meta name="theme-color" content="#5B1728">
+    <title>garigeba.ge — Meaningful Connections</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="app.js" defer></script>
 </head>
-<body>
-    <header class="site-header">
-        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+<body class="home-page">
+    <div class="cinematic-intro" id="cinematicIntro" role="dialog" aria-modal="true" aria-label="garigeba.ge intro" hidden>
+        <video class="cinematic-intro-video" id="cinematicIntroVideo" muted playsinline preload="none" poster="images/bg.webp" aria-hidden="true">
+            <source data-src="video/start.mp4" type="video/mp4">
+        </video>
+        <div class="cinematic-intro-shade" aria-hidden="true"></div>
+        <div class="cinematic-intro-brand">
+            <img src="images/logo.png" alt="" width="64" height="64">
+            <span>garigeba.ge</span>
+            <small>Meaningful Connections</small>
+        </div>
+        <button class="intro-skip" id="skipIntro" type="button">გამოტოვება</button>
+    </div>
+
+    <header class="site-header site-header-overlay" id="homeHeader">
+        <a class="logo" href="index.html" aria-label="garigeba.ge home">garigeba<span>.ge</span></a>
 
         <nav class="main-nav">
             <a class="active" href="index.html">მთავარი</a>
-            <a href="search.html">პროფილების ძიება</a>
+            <a href="search.html">ძიება</a>
+            <a href="guide.html">გზამკვლევი</a>
             <a href="safety.html">უსაფრთხოება</a>
         </nav>
 
         <div class="header-actions">
             <a class="btn btn-outline" href="login.html">შესვლა</a>
-            <a class="btn btn-primary" href="register.html">დაწყება</a>
+            <a class="btn btn-primary" href="register.html">რეგისტრაცია</a>
         </div>
 
         <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <span class="eyebrow">გაცნობა ნდობით იწყება</span>
-                <h1>ორი ოჯახის გაცნობა.<br><span>ერთი მნიშვნელოვანი ნაბიჯი.</span></h1>
-                <p>
-                    პლატფორმა მშობლებისთვის, რომლებსაც სურთ სრულწლოვანი
-                    შვილების გაცნობის პროცესში მხარდაჭერა. საბოლოო არჩევანი
-                    ყოველთვის თავად ადამიანებს ეკუთვნით.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary btn-large" href="register.html">შექმენი ანგარიში <span>↗</span></a>
-                    <a class="btn btn-outline btn-large" href="search.html">პროფილების ნახვა</a>
-                </div>
-                <div class="hero-note">
-                    <span class="note-icon">✓</span>
-                    მხოლოდ 18 წლის ან უფროსი ასაკის პირებისთვის, მათი თანხმობით.
+        <section class="hero-stage" id="heroStage" aria-label="Welcome to garigeba.ge">
+            <div class="hero-underlay">
+                <div class="hero-copy">
+                    <span class="eyebrow">გაცნობა ნდობით იწყება</span>
+                    <h1>მნიშვნელოვანი კავშირები.<br><span>ოჯახების გაცნობა მზრუნველობით.</span></h1>
+                    <p>გარიგება.ge მხარს უჭერს ოჯახებს ზრდასრული ადამიანების გაცნობაში. არჩევანი, ურთიერთობა და ქორწინების გადაწყვეტილება თავად მათ ეკუთვნით.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary btn-large" href="search.html">პროფილების ნახვა <span aria-hidden="true">↗</span></a>
+                        <a class="btn btn-outline btn-large" href="#how-it-works">როგორ მუშაობს</a>
+                    </div>
+                    <p class="hero-note"><span class="note-icon" aria-hidden="true">✓</span> მხოლოდ 18 წლის ან უფროსი ასაკის პირებისთვის, მათი თანხმობით.</p>
                 </div>
             </div>
 
-            <div class="hero-art" aria-label="დეკორატიული ილუსტრაცია">
-                <div class="art-circle circle-one"></div>
-                <div class="art-circle circle-two"></div>
-                <div class="art-card art-card-back">
-                    <div class="art-avatar">♡</div>
-                    <div class="art-lines"><i></i><i></i></div>
-                </div>
-                <div class="art-card art-card-front">
-                    <div class="art-symbol">გ</div>
-                    <span>ნდობა · პატივისცემა · არჩევანი</span>
-                    <div class="art-heart">♥</div>
-                </div>
-                <div class="floating-tag">შეხვედრის დასაწყისი</div>
+            <div class="hero-split-cover" id="heroSplitCover" aria-hidden="true">
+                <div class="hero-split-half hero-split-top"><img src="images/bg.webp" alt=""></div>
+                <div class="hero-split-half hero-split-bottom"><img src="images/bg.webp" alt=""></div>
+                <span class="hero-image-caption">garigeba.ge <i></i> meaningful connections</span>
             </div>
+
+            <a class="hero-scroll-cue" href="#how-it-works" aria-label="გადაახვიე, რომ გაიგო როგორ მუშაობს">
+                <span></span>
+                <small>გაიცანი პლატფორმა</small>
+            </a>
         </section>
 
         <section class="stats">
@@ -69,7 +78,7 @@
             <div><strong>04</strong><span>ისაუბრე ორმხრივი სურვილით</span></div>
         </section>
 
-        <section class="section">
+        <section class="section" id="how-it-works">
             <div class="section-heading">
                 <div>
                     <span class="eyebrow">როგორ მუშაობს</span>

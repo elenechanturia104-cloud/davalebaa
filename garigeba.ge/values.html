@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ღირებულებების კითხვარი — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="dashboard.html">ჩემი ანგარიში</a>
+            <a href="search.html">Smart Match</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container">
+        <div class="page-heading">
+            <span class="eyebrow">არჩევითი კითხვარი</span>
+            <h1>ღირებულებები და ცხოვრების წესი</h1>
+            <p>უპასუხე მხოლოდ იმას, რისი გაზიარებაც გსურს. კითხვარის გამოტოვება პროფილს არ ზღუდავს.</p>
+        </div>
+
+        <div class="notice">
+            ყველა პასუხი ნაგულისხმევად პირადია. მონიშნე ცალკეული პასუხი საჯაროდ გამოსაჩენად. რელიგიური ან ფილოსოფიური შეხედულება სრულიად ნებაყოფლობითია.
+        </div>
+
+        <div class="form-field values-profile-picker">
+            <label for="valuesProfileSelect">პროფილი</label>
+            <select id="valuesProfileSelect" aria-describedby="valuesProfileMessage">
+                <option value="">აირჩიე შენი პროფილი</option>
+            </select>
+            <p id="valuesProfileMessage" class="form-note" aria-live="polite"></p>
+        </div>
+
+        <form class="values-form" id="valuesQuestionnaireForm">
+            <div class="values-grid">
+                <fieldset class="value-question">
+                    <legend>ოჯახური ღირებულებები</legend>
+                    <label class="value-answer-label" for="valueFamilyValues">რა პრინციპებია შენთვის მნიშვნელოვანი?</label>
+                    <textarea id="valueFamilyValues" data-answer="familyValues" maxlength="300" placeholder="მაგ. ურთიერთპატივისცემა, მხარდაჭერა"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="familyValues"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="familyValues"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>კარიერა და განათლება</legend>
+                    <label class="value-answer-label" for="valueCareerEducation">რა მიზნები გაქვს სწავლასა და საქმიანობაში?</label>
+                    <textarea id="valueCareerEducation" data-answer="careerEducation" maxlength="300" placeholder="მაგ. პროფესიული განვითარება, შემდგომი სწავლა"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="careerEducation"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="careerEducation"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>სასურველი ცხოვრების წესი</legend>
+                    <label class="value-answer-label" for="valueLifestyle">როგორი ყოველდღიური ცხოვრება გირჩევნია?</label>
+                    <textarea id="valueLifestyle" data-answer="lifestyle" maxlength="300" placeholder="მაგ. მშვიდი ტემპი, აქტიური დასვენება"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="lifestyle"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="lifestyle"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>კულტურული ტრადიციები</legend>
+                    <label class="value-answer-label" for="valueTraditions">რომელი ტრადიციების შენარჩუნებაა შენთვის მნიშვნელოვანი?</label>
+                    <textarea id="valueTraditions" data-answer="culturalTraditions" maxlength="300" placeholder="პასუხი სურვილისამებრ"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="culturalTraditions"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="culturalTraditions"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>რელიგიური ან ფილოსოფიური შეხედულებები</legend>
+                    <label class="value-answer-label" for="valueBeliefs">გააზიარე მხოლოდ იმ შემთხვევაში, თუ თავად გსურს.</label>
+                    <textarea id="valueBeliefs" data-answer="beliefs" maxlength="300" placeholder="სრულიად ნებაყოფლობითია; შეგიძლია გამოტოვო"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="beliefs"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="beliefs"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>სასურველი საცხოვრებელი გარემო</legend>
+                    <label class="value-answer-label" for="valueEnvironment">ქალაქი, რეგიონი თუ სხვა გარემო?</label>
+                    <textarea id="valueEnvironment" data-answer="livingEnvironment" maxlength="300" placeholder="მაგ. ქალაქში ცხოვრება, ბუნებასთან სიახლოვე"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="livingEnvironment"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="livingEnvironment"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>პირადი დამოუკიდებლობა</legend>
+                    <label class="value-answer-label" for="valueIndependence">როგორ ხედავ პირად სივრცესა და დამოუკიდებლობას?</label>
+                    <textarea id="valueIndependence" data-answer="independence" maxlength="300" placeholder="მაგ. პირადი დრო, საერთო გადაწყვეტილებები"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="independence"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="independence"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>ოჯახის ჩართულობა</legend>
+                    <label class="value-answer-label" for="valueFamilyInvolvement">როგორი ჩართულობა გირჩევნია ურთიერთობის პროცესში?</label>
+                    <textarea id="valueFamilyInvolvement" data-answer="familyInvolvement" maxlength="300" placeholder="მაგ. მხარდაჭერა პირადი გადაწყვეტილებების პატივისცემით"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="familyInvolvement"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="familyInvolvement"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>გრძელვადიანი ურთიერთობის მიზნები</legend>
+                    <label class="value-answer-label" for="valueRelationshipGoals">რას ეძებ გრძელვადიან პარტნიორობაში?</label>
+                    <textarea id="valueRelationshipGoals" data-answer="relationshipGoals" maxlength="300" placeholder="მაგ. თანასწორი პარტნიორობა, საერთო განვითარება"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="relationshipGoals"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="relationshipGoals"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="value-question">
+                    <legend>მნიშვნელოვანი თვისებები პარტნიორში</legend>
+                    <label class="value-answer-label" for="valuePartnerQualities">რომელ თვისებებს აფასებ ყველაზე მეტად?</label>
+                    <textarea id="valuePartnerQualities" data-answer="partnerQualities" maxlength="300" placeholder="მაგ. გულწრფელობა, ემპათია, პასუხისმგებლობა"></textarea>
+                    <div class="value-controls">
+                        <label class="value-visibility"><input type="checkbox" data-visible="partnerQualities"> საჯაროდ გამოჩნდეს</label>
+                        <label class="value-weight">მნიშვნელობა <select data-value-weight="partnerQualities"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="btn btn-primary form-submit" type="submit">პასუხების შენახვა</button>
+            <p id="valuesFormMessage" class="form-message" aria-live="polite"></p>
+        </form>
+    </main>
+</body>
+</html>

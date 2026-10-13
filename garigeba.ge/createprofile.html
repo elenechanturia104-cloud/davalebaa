@@ -54,6 +54,29 @@
                 </div>
 
                 <div class="form-field">
+                    <label for="personRegion">რეგიონი</label>
+                    <select id="personRegion">
+                        <option value="">აირჩიე რეგიონი (არასავალდებულო)</option>
+                        <option>თბილისი</option>
+                        <option>იმერეთი</option>
+                        <option>აჭარა</option>
+                        <option>სამეგრელო</option>
+                        <option>კახეთი</option>
+                        <option>გურია</option>
+                        <option>შიდა ქართლი</option>
+                        <option>ქვემო ქართლი</option>
+                        <option>მცხეთა-მთიანეთი</option>
+                        <option>სამცხე-ჯავახეთი</option>
+                        <option>რაჭა-ლეჩხუმი და ქვემო სვანეთი</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="personCountry">ქვეყანა (არასავალდებულო)</label>
+                    <input id="personCountry" maxlength="60" placeholder="მაგ. საქართველო">
+                </div>
+
+                <div class="form-field">
                     <label for="personEducation">განათლება</label>
                     <select id="personEducation" required>
                         <option value="">აირჩიე</option>
@@ -62,6 +85,58 @@
                         <option>უმაღლესი</option>
                         <option>სხვა</option>
                     </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="personProfession">პროფესია</label>
+                    <input id="personProfession" maxlength="80" placeholder="მაგ. ინჟინერი">
+                </div>
+
+                <div class="form-field full">
+                    <label for="personInterests">ინტერესები</label>
+                    <input id="personInterests" maxlength="240" placeholder="მაგ. კითხვა, ლაშქრობა, მუსიკა">
+                    <span class="form-note">ჩამოთვალე მძიმით გამოყოფილი ინტერესები.</span>
+                </div>
+
+                <div class="form-field">
+                    <label for="personLanguages">ენები</label>
+                    <input id="personLanguages" maxlength="160" placeholder="მაგ. ქართული, ინგლისური">
+                </div>
+
+                <div class="form-field">
+                    <label for="personLifestyle">ცხოვრების წესი</label>
+                    <input id="personLifestyle" maxlength="160" placeholder="მაგ. აქტიური, მშვიდი">
+                </div>
+
+                <div class="form-field">
+                    <label for="personFamilyValues">ოჯახური ღირებულებები</label>
+                    <input id="personFamilyValues" maxlength="160" placeholder="მაგ. ურთიერთპატივისცემა">
+                </div>
+
+                <div class="form-field">
+                    <label for="personGoals">გრძელვადიანი მიზნები</label>
+                    <input id="personGoals" maxlength="160" placeholder="მაგ. ოჯახი, განვითარება">
+                </div>
+
+                <div class="form-field full">
+                    <label for="personMarriageExpectations">ქორწინების მოლოდინები</label>
+                    <textarea id="personMarriageExpectations" maxlength="240" placeholder="რა მოლოდინები აქვს ადამიანს ქორწინებისა და პარტნიორობის მიმართ?"></textarea>
+                </div>
+
+                <div class="form-field full">
+                    <label for="personPartnerCriteria">სასურველი თვისებები პარტნიორში</label>
+                    <input id="personPartnerCriteria" maxlength="200" placeholder="მაგ. გულწრფელობა, ემპათია">
+                </div>
+
+                <div class="form-field full profile-location-options">
+                    <label class="consent-label">
+                        <input type="checkbox" id="personGeorgianAbroad">
+                        ადამიანი საქართველოს ფარგლებს გარეთ ცხოვრობს და თავად სურს ამის მითითება.
+                    </label>
+                    <label class="consent-label">
+                        <input type="checkbox" id="personLongDistance">
+                        მზად არის განიხილოს შორ მანძილზე გაცნობა.
+                    </label>
                 </div>
 
                 <div class="form-field full">

@@ -13,7 +13,9 @@
         <nav class="main-nav">
             <a href="index.html">მთავარი</a>
             <a class="active" href="search.html">ძიება</a>
-            <a href="likes.html">მოწონებები</a>
+            <a href="guide.html">გზამკვლევი</a>
+            <a href="favorites.html">შენახული</a>
+            <a href="compare.html">შედარება</a>
             <a href="messages.html">მიმოწერა</a>
         </nav>
         <div class="header-actions">
@@ -33,7 +35,13 @@
             ნაჩვენები პროფილები დემო მონაცემებია და რეალურ ადამიანებს არ წარმოადგენენ.
         </div>
 
-        <form class="panel filter-row" id="searchForm">
+        <div class="search-mode-tabs" role="tablist" aria-label="ძიების რეჟიმი">
+            <button class="search-mode-tab" id="advancedModeTab" type="button" role="tab" aria-selected="true" aria-controls="searchForm" data-search-mode="advanced">მოწინავე ძიება</button>
+            <button class="search-mode-tab" id="recommendedModeTab" type="button" role="tab" aria-selected="false" aria-controls="matchSettings" data-search-mode="recommended">რეკომენდებული პროფილები</button>
+            <button class="search-mode-tab" id="regionalModeTab" type="button" role="tab" aria-selected="false" aria-controls="regionalSearchPanel" data-search-mode="regional">რეგიონული აღმოჩენა</button>
+        </div>
+
+        <form class="panel advanced-search-grid" id="searchForm" data-search-panel="advanced" role="tabpanel" aria-labelledby="advancedModeTab">
             <div class="form-field">
                 <label for="cityFilter">ქალაქი</label>
                 <select id="cityFilter">
@@ -45,15 +53,32 @@
                 </select>
             </div>
 
-            <div class="form-field">
-                <label for="ageFilter">ასაკი</label>
-                <select id="ageFilter">
-                    <option value="">ყველა ასაკი</option>
-                    <option value="18-24">18–24</option>
-                    <option value="25-30">25–30</option>
-                    <option value="31-40">31–40</option>
-                    <option value="41+">41+</option>
-                </select>
+            <div class="form-field advanced-region-field">
+                <span class="filter-label" id="advancedRegionLabel">რეგიონები</span>
+                <details class="region-multiselect" id="advancedRegionFilter" aria-labelledby="advancedRegionLabel">
+                    <summary>აირჩიე რეგიონები</summary>
+                    <div class="region-options">
+                        <label><input type="checkbox" value="თბილისი"> თბილისი</label>
+                        <label><input type="checkbox" value="იმერეთი"> იმერეთი</label>
+                        <label><input type="checkbox" value="აჭარა"> აჭარა</label>
+                        <label><input type="checkbox" value="სამეგრელო"> სამეგრელო</label>
+                        <label><input type="checkbox" value="კახეთი"> კახეთი</label>
+                        <label><input type="checkbox" value="გურია"> გურია</label>
+                        <label><input type="checkbox" value="შიდა ქართლი"> შიდა ქართლი</label>
+                        <label><input type="checkbox" value="ქვემო ქართლი"> ქვემო ქართლი</label>
+                        <label><input type="checkbox" value="მცხეთა-მთიანეთი"> მცხეთა-მთიანეთი</label>
+                        <label><input type="checkbox" value="სამცხე-ჯავახეთი"> სამცხე-ჯავახეთი</label>
+                        <label><input type="checkbox" value="რაჭა-ლეჩხუმი და ქვემო სვანეთი"> რაჭა-ლეჩხუმი და ქვემო სვანეთი</label>
+                    </div>
+                </details>
+            </div>
+
+            <div class="form-field advanced-age-range">
+                <label>ასაკი</label>
+                <div>
+                    <input id="ageMinFilter" type="number" min="18" max="100" inputmode="numeric" aria-label="მინიმალური ასაკი" placeholder="მინ.">
+                    <input id="ageMaxFilter" type="number" min="18" max="100" inputmode="numeric" aria-label="მაქსიმალური ასაკი" placeholder="მაქს.">
+                </div>
             </div>
 
             <div class="form-field">
@@ -66,8 +91,192 @@
                 </select>
             </div>
 
-            <button class="btn btn-primary" type="submit">ძიება</button>
+            <div class="form-field">
+                <label for="professionFilter">პროფესია</label>
+                <input id="professionFilter" placeholder="მაგ. მასწავლებელი">
+            </div>
+
+            <div class="form-field">
+                <label for="interestsFilter">ინტერესები</label>
+                <input id="interestsFilter" placeholder="მძიმით გამოყავი რამდენიმე">
+            </div>
+
+            <div class="form-field">
+                <label for="languagesFilter">ენები</label>
+                <input id="languagesFilter" placeholder="ქართული, ინგლისური">
+            </div>
+
+            <div class="form-field">
+                <label for="lifestyleFilter">ცხოვრების წესი</label>
+                <input id="lifestyleFilter" placeholder="მაგ. აქტიური">
+            </div>
+
+            <div class="form-field">
+                <label for="partnerCriteriaFilter">სასურველი თვისებები</label>
+                <input id="partnerCriteriaFilter" placeholder="მძიმით გამოყავი რამდენიმე">
+            </div>
+
+            <button class="btn btn-primary advanced-search-submit" type="submit">ძიება</button>
         </form>
+
+        <section class="match-settings panel" id="matchSettings" data-search-panel="recommended" role="tabpanel" aria-labelledby="recommendedModeTab" hidden>
+            <div class="match-settings-heading">
+                <div>
+                    <span class="eyebrow">Smart Match</span>
+                    <h2 id="matchHeading">შენი პრეფერენციები</h2>
+                </div>
+                <p>თითოეულ კრიტერიუმს მიანიჭე მნიშვნელობა. პარამეტრების შეცვლა ნებისმიერ დროს შეგიძლია.</p>
+            </div>
+
+            <p class="match-method">ქულა გამოითვლება მითითებული კრიტერიუმების წონიანი საშუალოთი. ასაკი, ქალაქი, რეგიონი, განათლება და პროფესია ზუსტად შედარდება; ჩამონათვალისთვის ქულა არის დამთხვევების წილი. ასაკის დიაპაზონის გარეთ ქულა ნულია.</p>
+
+            <div class="form-field match-profile-picker">
+                <label for="matchFromProfile">შეადარე ჩემი პროფილის ღირებულებებს</label>
+                <select id="matchFromProfile">
+                    <option value="">გამორთულია</option>
+                </select>
+                <span class="form-note">შენი პასუხები პირადია; შედარებაში მონაწილეობს მხოლოდ სხვა პროფილის საჯაროდ გამოჩენილი პასუხები.</span>
+            </div>
+
+            <form id="matchPreferencesForm">
+                <div class="match-preference-grid">
+                    <fieldset class="match-preference">
+                        <legend>ასაკი</legend>
+                        <div class="match-preference-inputs">
+                            <label>მინ. <input id="prefAgeMin" type="number" min="18" max="100" inputmode="numeric"></label>
+                            <label>მაქს. <input id="prefAgeMax" type="number" min="18" max="100" inputmode="numeric"></label>
+                            <label>მნიშვნელობა <select data-weight="age"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>ქალაქი და რეგიონი</legend>
+                        <div class="match-preference-inputs">
+                            <label>ქალაქები <input id="prefCities" placeholder="თბილისი, ბათუმი"></label>
+                            <label>რეგიონები <input id="prefRegions" placeholder="აჭარა, იმერეთი"></label>
+                            <label>მნიშვნელობა <select data-weight="location"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>განათლება</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefEducation" placeholder="უმაღლესი, სტუდენტი"></label>
+                            <label>მნიშვნელობა <select data-weight="education"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>პროფესია</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefProfessions" placeholder="ექიმი, ინჟინერი"></label>
+                            <label>მნიშვნელობა <select data-weight="profession"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>ინტერესები და ჰობი</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefInterests" placeholder="კითხვა, ლაშქრობა"></label>
+                            <label>მნიშვნელობა <select data-weight="interests"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>ენები</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefLanguages" placeholder="ქართული, ინგლისური"></label>
+                            <label>მნიშვნელობა <select data-weight="languages"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>ცხოვრების წესი</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefLifestyle" placeholder="აქტიური, მშვიდი"></label>
+                            <label>მნიშვნელობა <select data-weight="lifestyle"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>ოჯახური ღირებულებები</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefFamilyValues" placeholder="პატივისცემა, მხარდაჭერა"></label>
+                            <label>მნიშვნელობა <select data-weight="familyValues"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>გრძელვადიანი მიზნები</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefGoals" placeholder="ოჯახი, განვითარება"></label>
+                            <label>მნიშვნელობა <select data-weight="goals"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="match-preference">
+                        <legend>ქორწინების მოლოდინები</legend>
+                        <div class="match-preference-inputs">
+                            <label>სასურველი <input id="prefMarriageExpectations" placeholder="პარტნიორობა, თანასწორობა"></label>
+                            <label>მნიშვნელობა <select data-weight="marriageExpectations"><option value="0">გამორთ.</option><option value="1">დაბალი</option><option value="2" selected>საშუალო</option><option value="3">მაღალი</option></select></label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="match-preference-actions">
+                    <button class="btn btn-primary" type="submit">პრეფერენციების შენახვა</button>
+                    <p id="matchPreferencesMessage" class="form-message" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
+
+        <section class="regional-search-panel" id="regionalSearchPanel" data-search-panel="regional" role="tabpanel" aria-labelledby="regionalModeTab" hidden>
+            <div class="regional-search-heading">
+                <div>
+                    <span class="eyebrow">ადგილმდებარეობა</span>
+                    <h2>რეგიონული აღმოჩენა</h2>
+                </div>
+                <p>ძიება იყენებს მხოლოდ ნებაყოფლობით გაზიარებულ ქალაქსა და რეგიონს; ზუსტი მისამართი არ გამოჩნდება.</p>
+            </div>
+
+            <form id="regionalSearchForm" class="regional-search-grid">
+                <div class="form-field">
+                    <label for="regionalCityFilter">ქალაქი</label>
+                    <input id="regionalCityFilter" placeholder="მაგ. თბილისი ან ბერლინი">
+                </div>
+                <div class="form-field">
+                    <label for="geographicAreaFilter">გეოგრაფიული არეალი</label>
+                    <select id="geographicAreaFilter">
+                        <option value="any">ყველა არეალი</option>
+                        <option value="georgia">საქართველოში მცხოვრები</option>
+                        <option value="abroad">საზღვარგარეთ მცხოვრები</option>
+                    </select>
+                </div>
+                <div class="form-field regional-regions-field">
+                    <span class="filter-label" id="regionalRegionLabel">რეგიონები</span>
+                    <details class="region-multiselect" id="regionalRegionFilter" aria-labelledby="regionalRegionLabel">
+                        <summary>აირჩიე რეგიონები</summary>
+                        <div class="region-options">
+                            <label><input type="checkbox" value="თბილისი"> თბილისი</label>
+                            <label><input type="checkbox" value="იმერეთი"> იმერეთი</label>
+                            <label><input type="checkbox" value="აჭარა"> აჭარა</label>
+                            <label><input type="checkbox" value="სამეგრელო"> სამეგრელო</label>
+                            <label><input type="checkbox" value="კახეთი"> კახეთი</label>
+                            <label><input type="checkbox" value="გურია"> გურია</label>
+                            <label><input type="checkbox" value="შიდა ქართლი"> შიდა ქართლი</label>
+                            <label><input type="checkbox" value="ქვემო ქართლი"> ქვემო ქართლი</label>
+                            <label><input type="checkbox" value="მცხეთა-მთიანეთი"> მცხეთა-მთიანეთი</label>
+                            <label><input type="checkbox" value="სამცხე-ჯავახეთი"> სამცხე-ჯავახეთი</label>
+                            <label><input type="checkbox" value="რაჭა-ლეჩხუმი და ქვემო სვანეთი"> რაჭა-ლეჩხუმი და ქვემო სვანეთი</label>
+                        </div>
+                    </details>
+                </div>
+                <label class="regional-long-distance"><input id="longDistanceOnly" type="checkbox"> აჩვენე მხოლოდ შორ მანძილზე გაცნობისთვის მზად პროფილები</label>
+                <button class="btn btn-primary regional-search-submit" type="submit">რეგიონების მიხედვით ძიება</button>
+            </form>
+        </section>
+
+        <p class="match-disclaimer" data-search-panel="recommended" hidden>თანხვედრის ქულა ეფუძნება შენს მიერ მითითებულ მონაცემებს და არ არის სამეცნიერო პროგნოზი ან ურთიერთობის წარმატების გარანტია. ინტერესი ან ორმხრივი თანხვედრა ქორწინებაზე თანხმობას არ ნიშნავს; ყველა გადაწყვეტილებას სრულწლოვანი ადამიანები თავად იღებენ.</p>
 
         <div id="profileResults" class="profile-grid"></div>
     </main>

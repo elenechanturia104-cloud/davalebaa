@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>შენახული პროფილები — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="search.html">ძიება</a>
+            <a class="active" href="favorites.html">შენახული</a>
+            <a href="compare.html">შედარება</a>
+            <a href="matches.html">ურთიერთინტერესი</a>
+        </nav>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container">
+        <div class="page-heading">
+            <span class="eyebrow">პირადი სია</span>
+            <h1>შენახული პროფილები</h1>
+            <p>შენახვა პირადია და ინტერესს ან შეტყობინებას არ აგზავნის.</p>
+        </div>
+
+        <form class="panel favorite-filters" id="favoriteFilters">
+            <div class="form-field">
+                <label for="favoriteSearch">ძებნა</label>
+                <input id="favoriteSearch" type="search" placeholder="სახელი ან ქალაქი">
+            </div>
+            <div class="form-field">
+                <label for="favoriteSort">დალაგება</label>
+                <select id="favoriteSort">
+                    <option value="saved">შენახვის თარიღი</option>
+                    <option value="activity">ბოლო აქტივობა</option>
+                </select>
+            </div>
+        </form>
+
+        <p id="favoriteUnavailable" class="form-note" aria-live="polite"></p>
+        <div id="favoritesList" class="profile-grid"></div>
+    </main>
+</body>
+</html>
