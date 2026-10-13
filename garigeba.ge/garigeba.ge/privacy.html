@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>კონფიდენციალურობა — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="dashboard.html">ჩემი ანგარიში</a>
+            <a href="favorites.html">შენახული</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container">
+        <div class="page-heading">
+            <span class="eyebrow">ანგარიშის კონტროლი</span>
+            <h1>კონფიდენციალურობა</h1>
+            <p>მართე პროფილის ხილვადობა და ჩამოტვირთე შენ მიერ შენახული მონაცემები.</p>
+        </div>
+
+        <div class="notice privacy-demo-notice">
+            ეს პროექტი მუშაობს მხოლოდ ბრაუზერში. პარამეტრები ამ მოწყობილობაზე ინახება და სერვერისგან ვერ დაიცავს მონაცემებს. რეალურ გაშვებამდე საჭიროა backend-ზე წვდომის კონტროლი, უსაფრთხო ავტორიზაცია და მონაცემთა დამუშავების პოლიტიკა.
+        </div>
+
+        <div class="form-field privacy-profile-picker">
+            <label for="privacyProfileSelect">პროფილი</label>
+            <select id="privacyProfileSelect"><option value="">აირჩიე შენი პროფილი</option></select>
+            <p id="privacyProfileMessage" class="form-note" aria-live="polite"></p>
+        </div>
+
+        <form id="privacySettingsForm" class="privacy-settings-form">
+            <section class="privacy-section">
+                <h2>ძიება და რეკომენდაციები</h2>
+                <label class="privacy-toggle"><input id="privacyHiddenFromSearch" type="checkbox"> დროებით დამიმალე ძიებიდან</label>
+                <label class="privacy-toggle"><input id="privacyExcludeRecommendations" type="checkbox"> არ გამოიყენო რეკომენდაციებში</label>
+                <label class="privacy-toggle"><input id="privacyApprovedOnly" type="checkbox"> დეტალები მხოლოდ მოწონებულ მაყურებლებს აჩვენე</label>
+                <div class="form-field">
+                    <label for="privacyApprovedViewers">მოწონებული ანგარიშები</label>
+                    <textarea id="privacyApprovedViewers" maxlength="1000" placeholder="ანგარიშის ელფოსტები, თითოეული ახალ ხაზზე"></textarea>
+                    <span class="form-note">ეს დემო სია სერვერზე არ მოწმდება და უსაფრთხო დაშვებას არ ქმნის.</span>
+                </div>
+            </section>
+
+            <section class="privacy-section">
+                <h2>პროფილის დეტალები</h2>
+                <p class="muted">საბაზისო პროფილი რეალურ ვერსიაში მხოლოდ ავტორიზებულ ანგარიშებს უნდა ეჩვენებოდეს.</p>
+                <div class="privacy-field-grid">
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="age" checked> ასაკი</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="city" checked> ქალაქი</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="region" checked> რეგიონი</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="country" checked> ქვეყანა</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="georgianAbroad" checked> საზღვარგარეთ ცხოვრება</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="longDistance" checked> შორ მანძილზე გაცნობის სურვილი</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="education" checked> განათლება</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="profession" checked> პროფესია</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="bio" checked> აღწერა</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="interests" checked> ინტერესები</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="languages" checked> ენები</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="lifestyle" checked> ცხოვრების წესი</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="familyValues" checked> ოჯახური ინფორმაცია</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="goals" checked> გრძელვადიანი მიზნები</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="marriageExpectations" checked> ქორწინების მოლოდინები</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="partnerCriteria" checked> სასურველი თვისებები პარტნიორში</label>
+                    <label class="privacy-toggle"><input type="checkbox" data-visible-field="values" checked> კითხვარის საჯარო პასუხები</label>
+                </div>
+                <div class="notice">ფოტოების ატვირთვა ამ დემო ვერსიაში არ არის მხარდაჭერილი; მათი დამალვა ან ნახვის ნებართვის გაცემაც ჯერ შეუძლებელია.</div>
+            </section>
+
+            <button class="btn btn-primary" type="submit">პარამეტრების შენახვა</button>
+            <p id="privacySettingsMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <section class="privacy-section verification-section">
+            <h2>დადასტურების სტატუსები</h2>
+            <p class="muted">სტატუსი აჩვენებს მხოლოდ დასრულებულ შემოწმებას; არც ერთი მათგანი არ იძლევა პატიოსნების, თავსებადობის ან უსაფრთხოების გარანტიას.</p>
+            <dl class="verification-list" id="verificationStatus"></dl>
+            <p class="form-note">ელფოსტისა და ტელეფონის რეალური დადასტურება ან იდენტობის უსაფრთხო პროვაიდერი ამ დემოში ინტეგრირებული არ არის. დოკუმენტები არ იტვირთება და არ ინახება.</p>
+        </section>
+
+        <section class="privacy-section data-tools">
+            <h2>შენი მონაცემები</h2>
+            <p class="muted">ჩამოტვირთვა ქმნის ამ მოწყობილობაზე შენახული მონაცემების JSON ასლს.</p>
+            <div class="privacy-actions">
+                <button class="btn btn-outline" id="downloadMyData" type="button">მონაცემების ჩამოტვირთვა</button>
+                <button class="btn btn-outline" id="requestAccountDeletion" type="button">ანგარიშის წაშლის მოთხოვნა</button>
+            </div>
+            <p id="dataRequestMessage" class="form-message" aria-live="polite"></p>
+        </section>
+    </main>
+</body>
+</html>

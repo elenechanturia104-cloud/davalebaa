@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>რეგისტრაცია — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="index.html">მთავარი</a>
+            <a href="search.html">პროფილების ძიება</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+        <div class="header-actions">
+            <a class="btn btn-outline" href="login.html">შესვლა</a>
+        </div>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container">
+        <div class="page-heading">
+            <span class="eyebrow">შემოგვიერთდი</span>
+            <h1>ანგარიშის შექმნა</h1>
+            <p>ანგარიშს ქმნის მშობელი ან კანონიერი წარმომადგენელი, თუმცა პროფილის მფლობელი აუცილებლად სრულწლოვანი უნდა იყოს და თანხმობა უნდა ჰქონდეს გაცემული.</p>
+        </div>
+
+        <form class="form-card" id="registerForm">
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="regName">სახელი და გვარი</label>
+                    <input id="regName" name="name" required autocomplete="name" placeholder="მაგ. ნინო ბერიძე">
+                </div>
+
+                <div class="form-field">
+                    <label for="regEmail">ელფოსტა</label>
+                    <input id="regEmail" name="email" type="email" required autocomplete="email" placeholder="name@example.com">
+                </div>
+
+                <div class="form-field">
+                    <label for="regPassword">პაროლი</label>
+                    <input id="regPassword" name="password" type="password" required minlength="8" autocomplete="new-password" placeholder="მინიმუმ 8 სიმბოლო">
+                </div>
+
+                <div class="form-field">
+                    <label for="regRole">ანგარიშის ტიპი</label>
+                    <select id="regRole" name="role" required>
+                        <option value="">აირჩიე</option>
+                        <option value="parent">მშობელი / წარმომადგენელი</option>
+                        <option value="adult">სრულწლოვანი პირი</option>
+                    </select>
+                </div>
+
+                <div class="form-field full">
+                    <label class="consent-label">
+                        <input type="checkbox" name="adult" required>
+                        ვადასტურებ, რომ პროფილის მფლობელი არის მინიმუმ 18 წლის.
+                    </label>
+                    <label class="consent-label">
+                        <input type="checkbox" name="consent" required>
+                        ვადასტურებ, რომ პროფილის მფლობელი ინფორმირებულია და თანახმაა თავისი ინფორმაციის გაზიარებაზე.
+                    </label>
+                    <label class="consent-label">
+                        <input type="checkbox" name="terms" required>
+                        წავიკითხე <a href="safety.html">უსაფრთხოების წესები</a>.
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary form-submit" type="submit">ანგარიშის შექმნა</button>
+            <p id="registerMessage" class="form-message" aria-live="polite"></p>
+            <p class="form-note">ეს არის სასწავლო დემო. რეალური ანგარიშები და პაროლები უსაფრთხო სერვერზე უნდა ინახებოდეს.</p>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <a href="safety.html">უსაფრთხოება</a>
+        <small>© 2026 Garigeba.ge</small>
+    </footer>
+</body>
+</html>

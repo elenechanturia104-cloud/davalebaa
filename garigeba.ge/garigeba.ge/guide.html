@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>გაცნობის გზამკვლევი — Garigeba.ge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <nav class="main-nav">
+            <a href="index.html">მთავარი</a>
+            <a href="search.html">ძიება</a>
+            <a class="active" href="guide.html">გაცნობის გზამკვლევი</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="page-container guide-page">
+        <div class="page-heading">
+            <span class="eyebrow">ინფორმირებული გაცნობა</span>
+            <h1>The Introduction Guide</h1>
+            <p>იდეები მშვიდი საუბრისთვის, მკაფიო საზღვრებისთვის და ზრდასრულების თავისუფალი არჩევანის მხარდასაჭერად.</p>
+        </div>
+
+        <form id="guideSearchForm" class="panel guide-filters" role="search">
+            <div class="form-field">
+                <label for="guideSearch">სტატიების ძიება</label>
+                <input id="guideSearch" type="search" placeholder="საკითხი ან საკვანძო სიტყვა">
+            </div>
+            <div class="form-field">
+                <label for="guideCategory">კატეგორია</label>
+                <select id="guideCategory">
+                    <option value="">ყველა კატეგორია</option>
+                    <option value="family">ოჯახური გაცნობა</option>
+                    <option value="communication">საუბარი და მოლოდინები</option>
+                    <option value="boundaries">საზღვრები და თანხმობა</option>
+                    <option value="safety">უსაფრთხოება და კონფიდენციალურობა</option>
+                </select>
+            </div>
+        </form>
+
+        <p id="guideResultCount" class="guide-result-count" aria-live="polite"></p>
+        <section id="guideArticles" class="guide-article-list" aria-label="გზამკვლევის სტატიები"></section>
+    </main>
+</body>
+</html>

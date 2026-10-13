@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="garigeba.ge — meaningful connections, introduced with care and family support.">
+    <meta name="theme-color" content="#5B1728">
+    <title>garigeba.ge — Meaningful Connections</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app.js" defer></script>
+</head>
+<body class="home-page">
+    <div class="cinematic-intro" id="cinematicIntro" role="dialog" aria-modal="true" aria-label="garigeba.ge intro" hidden>
+        <video class="cinematic-intro-video" id="cinematicIntroVideo" muted playsinline preload="none" poster="images/bg.webp" aria-hidden="true">
+            <source data-src="video/start.mp4" type="video/mp4">
+        </video>
+        <div class="cinematic-intro-shade" aria-hidden="true"></div>
+        <div class="cinematic-intro-brand">
+            <img src="images/logo.png" alt="" width="64" height="64">
+            <span>garigeba.ge</span>
+            <small>Meaningful Connections</small>
+        </div>
+        <button class="intro-skip" id="skipIntro" type="button">გამოტოვება</button>
+    </div>
+
+    <header class="site-header site-header-overlay" id="homeHeader">
+        <a class="logo" href="index.html" aria-label="garigeba.ge home">garigeba<span>.ge</span></a>
+
+        <nav class="main-nav">
+            <a class="active" href="index.html">მთავარი</a>
+            <a href="search.html">ძიება</a>
+            <a href="guide.html">გზამკვლევი</a>
+            <a href="safety.html">უსაფრთხოება</a>
+        </nav>
+
+        <div class="header-actions">
+            <a class="btn btn-outline" href="login.html">შესვლა</a>
+            <a class="btn btn-primary" href="register.html">რეგისტრაცია</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">☰</button>
+    </header>
+
+    <main>
+        <section class="hero-stage" id="heroStage" aria-label="Welcome to garigeba.ge">
+            <div class="hero-underlay">
+                <div class="hero-copy">
+                    <span class="eyebrow">გაცნობა ნდობით იწყება</span>
+                    <h1>მნიშვნელოვანი კავშირები.<br><span>ოჯახების გაცნობა მზრუნველობით.</span></h1>
+                    <p>გარიგება.ge მხარს უჭერს ოჯახებს ზრდასრული ადამიანების გაცნობაში. არჩევანი, ურთიერთობა და ქორწინების გადაწყვეტილება თავად მათ ეკუთვნით.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary btn-large" href="search.html">პროფილების ნახვა <span aria-hidden="true">↗</span></a>
+                        <a class="btn btn-outline btn-large" href="#how-it-works">როგორ მუშაობს</a>
+                    </div>
+                    <p class="hero-note"><span class="note-icon" aria-hidden="true">✓</span> მხოლოდ 18 წლის ან უფროსი ასაკის პირებისთვის, მათი თანხმობით.</p>
+                </div>
+            </div>
+
+            <div class="hero-split-cover" id="heroSplitCover" aria-hidden="true">
+                <div class="hero-split-half hero-split-top"><img src="images/bg.webp" alt=""></div>
+                <div class="hero-split-half hero-split-bottom"><img src="images/bg.webp" alt=""></div>
+                <span class="hero-image-caption">garigeba.ge <i></i> meaningful connections</span>
+            </div>
+
+            <a class="hero-scroll-cue" href="#how-it-works" aria-label="გადაახვიე, რომ გაიგო როგორ მუშაობს">
+                <span></span>
+                <small>გაიცანი პლატფორმა</small>
+            </a>
+        </section>
+
+        <section class="stats">
+            <div><strong>01</strong><span>შექმენი ანგარიში</span></div>
+            <div><strong>02</strong><span>გაეცანი პროფილებს</span></div>
+            <div><strong>03</strong><span>მოითხოვე თანხმობა</span></div>
+            <div><strong>04</strong><span>ისაუბრე ორმხრივი სურვილით</span></div>
+        </section>
+
+        <section class="section" id="how-it-works">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">როგორ მუშაობს</span>
+                    <h2>მარტივი პროცესი, მკაფიო წესები</h2>
+                </div>
+                <p>არც ერთი პროფილი და არც ერთი საუბარი არ უნდა შეიქმნას იმ ადამიანის ნების საწინააღმდეგოდ, ვისაც ის ეხება.</p>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">01</div>
+                    <h3>შექმენი პროფილი</h3>
+                    <p>შეიყვანე საჭირო ინფორმაცია სრულწლოვანი ადამიანის თანხმობით.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">02</div>
+                    <h3>მოძებნე შესაფერისი პროფილები</h3>
+                    <p>გამოიყენე ფილტრები და გაეცანი მხოლოდ იმ ინფორმაციას, რომელიც გაზიარებულია.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">03</div>
+                    <h3>ურთიერთინტერესი</h3>
+                    <p>მიმოწერა ხელმისაწვდომი უნდა გახდეს მხოლოდ ორმხრივი თანხმობის შემდეგ.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div>
+                <span class="eyebrow">Garigeba.ge</span>
+                <h2>გაცნობა იწყება პატივისცემით.</h2>
+                <p>შექმენი ანგარიში და გაეცანი პლატფორმის წესებს.</p>
+            </div>
+            <a class="btn btn-light btn-large" href="register.html">რეგისტრაცია ↗</a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="logo" href="index.html">გარიგება<span>.ge</span></a>
+        <p>გაცნობა ნდობით, არჩევანი თავისუფლად.</p>
+        <div class="footer-links">
+            <a href="safety.html">უსაფრთხოება</a>
+            <a href="login.html">შესვლა</a>
+            <a href="register.html">რეგისტრაცია</a>
+        </div>
+        <small>© 2026 Garigeba.ge — დემო ვერსია</small>
+    </footer>
+</body>
+</html>
